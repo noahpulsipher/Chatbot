@@ -20,21 +20,21 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = null;
+		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
-		this.cuteAnimalMemes = null;
+		this.cuteAnimalMemes = new ArrayList<String>();
 		this.currentTime = null;
 		this.questions = null;
 		this.username = username;
 		this.content = null;
 		this.intro = null;
-		this.currentTime = null;
 		this.topics = null;
 		this.verbs = new String [4];
 		this.followUps = null;
 		
 		buildVerbs();
 		buildShoppingList();
+		buildCuteAnimals();
 	}
 	
 	private void buildVerbs()
@@ -47,7 +47,12 @@ public class Chatbot
 
 	private void buildMovieList()
 	{
-		
+		movieList.add("Spiderman");
+		movieList.add("Hidden Figures");
+		movieList.add("Intersteller");
+		movieList.add("Emoji Movie");
+		movieList.add("The Lego Batman Movie");
+		movieList.add("The Lego Ninjago Movie");
 	}
 	
 	private void buildShoppingList()
@@ -55,13 +60,22 @@ public class Chatbot
 		shoppingList.add("snacks");
 		shoppingList.add("veggies");
 		shoppingList.add("protein");
-		shoppingList.add("slug bait");
-		shoppingList.add("gross things");
+		shoppingList.add("fruits");
+		shoppingList.add("candy");
+		shoppingList.add("shampoo");
+		shoppingList.add("conditioner");
+		shoppingList.add("milk");
+		shoppingList.add("chips");
+		shoppingList.add("salsa");
+		shoppingList.add("cheese");
 	}
 	
 	private void buildCuteAnimals()
 	{
-		
+		cuteAnimalMemes.add("pupper");
+		cuteAnimalMemes.add("kittie");
+		cuteAnimalMemes.add("otter");
+		cuteAnimalMemes.add("fluffer");
 	}
 	
 	private void buildQuestions()
