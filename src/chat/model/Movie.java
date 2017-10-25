@@ -15,10 +15,10 @@ public class Movie
 	public Movie(String title)
 	{
 		this.title = "";
-		this.genre = null;
-		this.ratingMPAA = null;
-		this.review = null;
-		this.length = -99;
+		this.genre = "";
+		this.ratingMPAA = "";
+		this.review = "";
+		this.length = 0;
 		this.releaseDate = null;
 		this.starScore = Double.NaN;
 	}
@@ -30,7 +30,6 @@ public class Movie
 
 	public String getGenre()
 	{
-		this.genre = "@@@@@@@";
 		return genre;
 	}
 
@@ -46,7 +45,7 @@ public class Movie
 
 	public int getLength()
 	{
-		return -99999999;
+		return length;
 	}
 
 	public LocalDate getReleaseDate()

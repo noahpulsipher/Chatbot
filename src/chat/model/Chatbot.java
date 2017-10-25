@@ -52,7 +52,7 @@ public class Chatbot
 		movieList.add("Intersteller");
 		movieList.add("Emoji Movie");
 		movieList.add("The Lego Batman Movie");
-		movieList.add("The Lego Ninjago Movie");
+		movieList.add("The White Helmets");
 	}
 	
 	private void buildShoppingList()

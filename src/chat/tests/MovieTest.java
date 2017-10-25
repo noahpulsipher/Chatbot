@@ -127,7 +127,7 @@ public class MovieTest
 		int length = 100;
 		testedMovie.setLength(length);
 		assertTrue("Length should change", testedMovie.getLength() == length);
-		
+
 	}
 
 	@Test
