@@ -37,10 +37,8 @@ public class Chatbot
 		buildCuteAnimals();
 		buildTopics();
 		buildQuestions();
-		buildFollowups();
+	//	buildFollowups();
 	}
-	
-	
 	
 	private void buildVerbs()
 	{
@@ -50,15 +48,15 @@ public class Chatbot
 		verbs[3] = "am thinking about";
 	}
 
-	private void buildMovieList()
-	{
-		movieList.add("Spiderman");
-		movieList.add("Hidden Figures");
-		movieList.add("Intersteller");
-		movieList.add("Emoji Movie");
-		movieList.add("The Lego Batman Movie");
-		movieList.add("The White Helmets");
-	}
+//	private void buildMovieList()
+//	{
+//		movieList.add("Spiderman");
+//		movieList.add("Hidden Figures");
+//		movieList.add("Intersteller");
+//		movieList.add("The Emoji Movie");
+//		movieList.add("The Lego Batman Movie");
+//		movieList.add("The White Helmets");
+//	}
 	
 	private void buildShoppingList()
 	{
@@ -80,12 +78,32 @@ public class Chatbot
 		cuteAnimalMemes.add("pupper");
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("otter");
-		cuteAnimalMemes.add("fluffer");
+		cuteAnimalMemes.add("FLOOFER");
+	}
+	
+	private void buildTopics()
+	{
+		topics[0] = "Memes";
+		topics[1] = "Science";
+		topics[2] = "Physics";
+		topics[3] = "Superheroes";
+		topics[4] = "Music";
+		topics[5] = "Math";
+		topics[6] = "Sports";
 	}
 	
 	private void buildQuestions()
 	{
-		
+		questions[0] = "What is your favorite color?";
+		questions[1] = "What is your favorite food?";
+		questions[2] = "What is your favorite sport?";
+		questions[3] = "Do you have a hobby?";
+		questions[4] = "What is your favorite movie?";
+		questions[5] = "What is your favorite book?";
+		questions[6] = "What is your favorite place to vacation?";
+		questions[7] = "What is your favorite outdoors activity?";
+		questions[8] = "What is your favorite television show?";
+		questions[9] = "How old are you?";
 	}
 	
 	public String processConversation(String input)
@@ -164,7 +182,13 @@ public class Chatbot
 
 	public boolean quitChecker(String exitString)
 	{
-		return false;
+		boolean validQuit = false;
+		
+		if (exitString != "" && exitString != null && !exitString.equalsIgnoreCase("exit") && exitString.equalsIgnoreCase("quit"))
+		{
+			validQuit = true;
+		}
+		return validQuit;
 	}
 
 	public boolean keyboardMashChecker(String sample)
