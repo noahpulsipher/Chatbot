@@ -84,11 +84,11 @@ public class Chatbot
 	private void buildTopics()
 	{
 		topics[0] = "Memes";
-		topics[1] = "Science";
-		topics[2] = "Physics";
-		topics[3] = "Superheroes";
+		topics[1] = "Movies";
+		topics[2] = "Games";
+		topics[3] = "Dogs";
 		topics[4] = "Music";
-		topics[5] = "Math";
+		topics[5] = "Cars";
 		topics[6] = "Sports";
 	}
 	
