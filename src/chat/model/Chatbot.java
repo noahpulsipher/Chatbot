@@ -10,7 +10,7 @@ public class Chatbot
 	private List<String> shoppingList;
 	private List<String> cuteAnimalMemes;
 	private String [] verbs;
-	private String [] topics; 
+	private String [] topics;
 	private String [] followUps;
 	private String [] questions;
 	private String username;
@@ -36,7 +36,7 @@ public class Chatbot
 		buildShoppingList();
 		buildCuteAnimals();
 		buildTopics();
-		buildQuestions();
+      	buildQuestions();
 	//	buildFollowups();
 	}
 	
@@ -96,14 +96,14 @@ public class Chatbot
 	{
 		questions[0] = "What is your favorite color?";
 		questions[1] = "What is your favorite food?";
-		questions[2] = "What is your favorite sport?";
-		questions[3] = "Do you have a hobby?";
+		questions[2] = "What is your spirit animal";
+		questions[3] = "What do you like to do in your free time?";
 		questions[4] = "What is your favorite movie?";
 		questions[5] = "What is your favorite book?";
 		questions[6] = "What is your favorite place to vacation?";
 		questions[7] = "What is your favorite outdoors activity?";
 		questions[8] = "What is your favorite television show?";
-		questions[9] = "How old are you?";
+		questions[9] = "What is your favorite song?";
 	}
 	
 	public String processConversation(String input)
@@ -165,9 +165,18 @@ public class Chatbot
 		return false;
 	}
 	
-	public boolean shoppingListChecker(String shoppingItem)
+	public boolean shoppingListChecker(String shoppingItem) //Checks shopping items to make sure it contains/doesn't contain certain things.
 	{
-		return false;
+		boolean validList = false;
+		
+		for (int index = 0; index < 11; index ++)
+		{
+			if(shoppingItem.contains(shoppingList.get(index)))
+			{
+				validList = true;
+			}
+		}
+		return validList;
 	}
 	
 	public boolean movieTitleChecker(String title)
