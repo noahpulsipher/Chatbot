@@ -130,6 +130,14 @@ public class Chatbot
 		random = (int) (Math.random() * questions.length);
 		response += questions[random];
 		
+		random = (int) (Math.random() * 2);
+		
+		if (random % 2 == 0)
+		{
+			random = (int) (Math.random() * movieList.size());
+			response += "\n" + movieList.get(random).getTitle() + " is a great movie!";
+		}
+		 
 		return response;
 	}
 	
@@ -208,9 +216,13 @@ public class Chatbot
 
 	public boolean keyboardMashChecker(String sample)
 	{
-		boolean validKeyboard = true;
+		boolean validKeyboard = false;
 		
-		if (sample == "S.D.F." || sample == "derf")
+		if (sample.contains("sdf") || sample.contains("SDF") || sample.contains("dfg") || sample.contains("cvb") || sample.contains(",./") || sample.contains("kjh") || sample.contains("DFG") || sample.contains("CVB") || sample.contains("KJH"))
+		{
+			validKeyboard = true;
+		}
+		else if (sample.contains("S.D.F.") || sample.contains("derf"))
 		{
 			validKeyboard = false;
 		}
