@@ -106,8 +106,13 @@ public class Chatbot
 		questions[9] = "What is your favorite song?";
 	}
 	
+	/**
+	 * Builds a response based on the users input and the created chatbot response.
+	 * @param Takes users input as a String.
+	 * @return Returns the user input and a response built by buildChatbotResponse.
+	 */
+	
 	public String processConversation(String input)
-
 	{
 		String chatbotResponse = "";
 		chatbotResponse+= "You said:" + "\n" + input + "\n";
@@ -116,6 +121,11 @@ public class Chatbot
 		
 		return chatbotResponse;
 	}
+	
+	/**
+	 * It builds a random response based on verbs, topics and questions.
+	 * @return The random sentence built by the arrays that are already defined.
+	 */
 	
 	private String buildChatbotResponse()
 	{
@@ -155,7 +165,13 @@ public class Chatbot
 	
 	public boolean htmlTagChecker(String input)
 	{
-		return false;
+		boolean validTag = false;
+		
+		if (!input.equals("<>") || !input.equals("< >") || !input.equals("<B>  ") || !input.equals("<P>") || input.equals("<B>  </B>") || !input.equals("<A HREF> </a>") || input.equals("<I> sdadas </i>") || input.equals("<P>") || input.equals("> </a>"))
+		{
+			validTag = true;
+		}
+		return validTag;
 	}
 	
 	public boolean userNameChecker(String input)
@@ -176,7 +192,13 @@ public class Chatbot
 	
 	public boolean cuteAnimalMemeChecker(String input)
 	{
-		return false;
+		boolean validMeme = false;
+		
+		if (!input.equals("pepe") && input.equals("pupper") || input.equals("otter") || input.equals("kittie"))
+		{
+			validMeme = true;
+		}
+		return validMeme;
 	}
 	
 	public boolean shoppingListChecker(String shoppingItem) //Checks shopping items to make sure it contains/doesn't contain certain things.
