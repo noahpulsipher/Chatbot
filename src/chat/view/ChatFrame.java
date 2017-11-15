@@ -30,6 +30,8 @@ public class ChatFrame extends JFrame
 		
 	}
 	
-	
-
+	public ChatbotController getAppController()
+	{
+		return appController;
+	}
 }
