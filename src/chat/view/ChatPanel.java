@@ -17,6 +17,7 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
+	private JButton checkerButton;
 	
 	/**
 	 * 
@@ -28,10 +29,11 @@ public class ChatPanel extends JPanel
 		this.appController = appController;
 		
 		//Initialize GUI data members
-		chatButton = new JButton("chat");
+		chatButton = new JButton("Chat");
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
+		checkerButton = new JButton("Check");
 		
 		
 		setupPanel();
@@ -49,8 +51,10 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 		this.add(inputField);
 		this.add(chatArea);
+		this.add(checkerButton);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
+		
 	}
 	
 	/**
@@ -72,6 +76,14 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupListeners()
 	{
+		checkerButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
+		
 		chatButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)

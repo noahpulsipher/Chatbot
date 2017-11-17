@@ -34,17 +34,31 @@ public class ChatbotController
 		return chatbotSays;
 	}
 	
+	public String interactWithChatbot(String input)
+	{
+		String chatbotSays = "";
+		
+		if(chatbot.quitChecker(input))
+		{
+			close();
+		}
+		
+		chatbotSays += chatbot.processConversation(input); 
+		
+		return chatbotSays;
+	}
+	
+	private void close()
+	{
+		display.displayText("Goodbye");
+		System.exit(0);
+	}
+	
 	/**
 	 * Starts the conversation.
 	 */
 	public void start()
 	{
-		String response = display.collectResponse("What do you want to talk about?");
-		
-//		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
-//		{
-//			response = popupChat(response);
-//			response = display.collectResponse(response);
-//		}
+		display.displayText("Welcome to Chatbot");
 	}
 }
