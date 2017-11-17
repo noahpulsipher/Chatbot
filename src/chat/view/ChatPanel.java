@@ -38,7 +38,7 @@ public class ChatPanel extends JPanel
 	}
 	
 	/**
-	 * Defines the 
+	 * Defines the Panel.
 	 */
 	private void setupPanel()
 	{
@@ -51,6 +51,9 @@ public class ChatPanel extends JPanel
 		chatArea.setEditable(false);
 	}
 	
+	/**
+	 * Where all the putContraints are put to keep track of them.
+	 */
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
@@ -62,6 +65,9 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, chatArea, -25, SpringLayout.EAST, this);
 	}
 	
+	/**
+	 * Listens for a click and then completes a task when activated.
+	 */
 	private void setupListeners()
 	{
 		
