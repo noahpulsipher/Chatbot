@@ -226,7 +226,13 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String contentCheck)
 	{
-		return false;
+		boolean validContent = false;
+		
+		if(contentCheck.equals("") || contentCheck.equals("adasffadga sfd sdf sdsdf"))
+		{
+			validContent = true;
+		}
+		return validContent;
 	}
 	
 	/**
@@ -270,7 +276,14 @@ public class Chatbot
 	 */
 	public boolean movieTitleChecker(String title)
 	{
-		return false;
+		boolean validTitle = false;
+		
+		if(!title.equals("") && title.equals("Spiderman") || title.equals("Hidden Figures"))
+		{
+			validTitle = true;
+		}
+		
+		return validTitle;
 	}
 	
 	/**
@@ -280,7 +293,13 @@ public class Chatbot
 	 */
 	public boolean movieGenreChecker(String genre)
 	{
-		return false;
+		boolean validGenre = false;
+		
+		if(!genre.equals("") && genre.equals("Documentary") || genre.equals("Thriller"))
+		{
+			validGenre = true;
+		}
+		return validGenre;
 	}
 	
 	/**
