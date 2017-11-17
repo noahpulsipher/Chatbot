@@ -18,6 +18,10 @@ public class Chatbot
 	private String intro;
 	private LocalTime currentTime;
 	
+	/**
+	 * Assigns the data members a type and builds methods
+	 * @param username
+	 */
 	public Chatbot(String username)
 	{
 		this.movieList = new ArrayList<Movie>();
@@ -40,6 +44,9 @@ public class Chatbot
 	//	buildFollowups();
 	}
 	
+	/**
+	 * Array that holds the verbs that the chatbot has towards certain topics.
+	 */
 	private void buildVerbs()
 	{
 		verbs[0] = "like";
@@ -58,6 +65,9 @@ public class Chatbot
 //		movieList.add("The White Helmets");
 //	}
 	
+	/**
+	 * Adds things into the shopping list array list.
+	 */
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
@@ -73,6 +83,9 @@ public class Chatbot
 		shoppingList.add("cheese");
 	}
 	
+	/**
+	 * Adds things into the cute animal array list.
+	 */
 	private void buildCuteAnimals()
 	{
 		cuteAnimalMemes.add("pupper");
@@ -81,6 +94,9 @@ public class Chatbot
 		cuteAnimalMemes.add("FLOOFER");
 	}
 	
+	/**
+	 * Adds things into the topics array so that chatbot can talk about them.
+	 */
 	private void buildTopics()
 	{
 		topics[0] = "Memes";
@@ -92,6 +108,9 @@ public class Chatbot
 		topics[6] = "Sports";
 	}
 	
+	/**
+	 * Adds questions into the questons array so that chatbot can ask them.
+	 */
 	private void buildQuestions()
 	{
 		questions[0] = "What is your favorite color?";
@@ -151,6 +170,11 @@ public class Chatbot
 		return response;
 	}
 	
+	/**
+	 * Checks to make sure the user response is greater than two and that there actually is a response.
+	 * @param input
+	 * @return true if valid input.
+	 */
 	public boolean lengthChecker(String input)
 	{
 		boolean validLength = false;
@@ -163,6 +187,11 @@ public class Chatbot
 		return validLength;
 	}
 	
+	/**
+	 * Makes sure that the tags have proper documentation.
+	 * @param input
+	 * @return true if valid input.
+	 */
 	public boolean htmlTagChecker(String input)
 	{
 		boolean validTag = false;
@@ -174,6 +203,11 @@ public class Chatbot
 		return validTag;
 	}
 	
+	/**
+	 * Makes sure that the users name has proper use of "@".
+	 * @param input
+	 * @return true if input is valid.
+	 */
 	public boolean userNameChecker(String input)
 	{
 		boolean validUser = false;
@@ -185,11 +219,21 @@ public class Chatbot
 		return validUser;
 	}
 	
+	/**
+	 * 
+	 * @param contentCheck
+	 * @return
+	 */
 	public boolean contentChecker(String contentCheck)
 	{
 		return false;
 	}
 	
+	/**
+	 * Makes sure that cute animal memes has good memes and not bad ones.
+	 * @param input
+	 * @return true if input is valid.
+	 */
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		boolean validMeme = false;
@@ -201,6 +245,11 @@ public class Chatbot
 		return validMeme;
 	}
 	
+	/**
+	 * Checks to make sure the shopping list is long enough.
+	 * @param shoppingItem
+	 * @return true if input is valid.
+	 */
 	public boolean shoppingListChecker(String shoppingItem) //Checks shopping items to make sure it contains/doesn't contain certain things.
 	{
 		boolean validList = false;
@@ -214,17 +263,31 @@ public class Chatbot
 		}
 		return validList;
 	}
-	
+	/**
+	 * Makes sure that the movie titles are good.
+	 * @param title
+	 * @return true if input is valid.
+	 */
 	public boolean movieTitleChecker(String title)
 	{
 		return false;
 	}
 	
+	/**
+	 * Makes sure that a genre is included in the movie array.
+	 * @param genre
+	 * @return true if input is valid.
+	 */
 	public boolean movieGenreChecker(String genre)
 	{
 		return false;
 	}
-
+	
+	/**
+	 * If the users response is exit or quit.
+	 * @param exitString
+	 * @return true if input is valid.
+	 */
 	public boolean quitChecker(String exitString)
 	{
 		boolean validQuit = false;
@@ -235,7 +298,12 @@ public class Chatbot
 		}
 		return validQuit;
 	}
-
+	
+	/**
+	 * Makes sure that the keyboard isn't being spammed.
+	 * @param sample
+	 * @return true if input is valid.
+	 */
 	public boolean keyboardMashChecker(String sample)
 	{
 		boolean validKeyboard = false;

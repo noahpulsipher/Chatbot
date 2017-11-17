@@ -10,6 +10,9 @@ public class ChatbotController
 	private PopupDisplay display;
 	private ChatFrame appFrame;
 	
+	/**
+	 * Initializes data members.
+	 */
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Noah Pulsipher");
@@ -17,6 +20,11 @@ public class ChatbotController
 		appFrame = new ChatFrame(this);
 	}
 	
+	/**
+	 * Creates a popup with a outline for what the chatbot will say.
+	 * @param chat
+	 * @return
+	 */
 	private String popupChat(String chat)
 	{
 		String chatbotSays = ""; //Assigns a valid value to a variable that will be returned for the method.
@@ -26,6 +34,9 @@ public class ChatbotController
 		return chatbotSays;
 	}
 	
+	/**
+	 * Starts the conversation.
+	 */
 	public void start()
 	{
 		String response = display.collectResponse("What do you want to talk about?");

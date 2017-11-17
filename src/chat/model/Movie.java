@@ -12,6 +12,10 @@ public class Movie
 	private LocalDate releaseDate;
 	private double starScore;
 	
+	/**
+	 * Sets a base for the movie to follow.
+	 * @param title
+	 */
 	public Movie(String title)
 	{
 		this.title = "";
@@ -93,6 +97,9 @@ public class Movie
 		this.starScore = starScore;
 	}
 	
+	/**
+	 * Creates a string integration.
+	 */
 	public String toString()
 	{
 		String description = ("The title of the movie is " + title + ". The genre of " + 

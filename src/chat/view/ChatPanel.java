@@ -16,6 +16,10 @@ public class ChatPanel extends JPanel
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
 	
+	/**
+	 * 
+	 * @param appController
+	 */
 	public ChatPanel(ChatbotController appController)
 	{
 		super();
@@ -33,6 +37,9 @@ public class ChatPanel extends JPanel
 		setupListeners();
 	}
 	
+	/**
+	 * Defines the 
+	 */
 	private void setupPanel()
 	{
 		this.setBackground(new Color(0, 204, 204));
