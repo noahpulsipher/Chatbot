@@ -39,6 +39,46 @@ public class ChatbotController
 		return chatbotSays;
 	}
 	
+	public String useCheckers(String text)
+	{
+		String response = "";
+		
+		if(chatbot.contentChecker(text))
+		{
+			response += "This text matches the special content\n";
+		}
+		if(chatbot.cuteAnimalMemeChecker(text))
+		{
+			response += "That is a cute meme!\n";
+		}
+		if(chatbot.userNameChecker(text))
+		{
+			response += "Good username.\n";
+		}
+		if(chatbot.contentChecker(text))
+		{
+			response += "Thats some good content.\n";
+		}
+		if(chatbot.shoppingListChecker(text))
+		{
+			response += "I like to shop at Harmons\n";
+		}
+		if(chatbot.movieTitleChecker(text))
+		{
+			response = "Thats one of my favorites!\n";
+		}
+		if(chatbot.movieGenreChecker(text))
+		{
+			response = "My favorite kind of movie is comedy!\n";
+		}
+		if(chatbot.keyboardMashChecker(text))
+		{
+			response = "ad;fkjvnerhf\n";
+		}
+		
+		return response;
+	}
+	
 	public String interactWithChatbot(String input)
 	{
 		String chatbotSays = "";
