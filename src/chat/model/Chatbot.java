@@ -212,13 +212,18 @@ public class Chatbot
 	 */
 	public boolean htmlTagChecker(String input)
 	{
+		input.toUpperCase();
 		boolean validTag = false;
 		
-		if (!input.equals("<>") || !input.equals("< >") || !input.equals("<B>  ") || !input.equals("<P>") || input.equals("<B>  </B>") || !input.equals("<A HREF> </a>") || input.equals("<I> sdadas </i>") || input.equals("<P>") || input.equals("> </a>"))
+		if (!input.contains("<") && !input.contains(">"))
 		{
-			validTag = true;
+			validTag = false;
 		}
-		return validTag;
+		else if(input.contains("<>") || input.contains("< >"))
+		{
+			validTag = false;
+		}
+			return validTag;
 	}
 	
 	/**
