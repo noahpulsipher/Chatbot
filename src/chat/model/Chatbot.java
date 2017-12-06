@@ -216,10 +216,10 @@ public class Chatbot
 		boolean validTag = false;
 		if(input == null || !input.contains("<"))
 		{
-			validTag = false;
+			return validTag;
 		}
 		int firstOpen = input.indexOf("<");
-		int firstClose = input.indexOf(">", firstOpen);
+		int firstClose = input.indexOf(">");
 		int secondOpen = -9;
 		int secondClose = -9;
 		String tagText = "";
@@ -240,27 +240,7 @@ public class Chatbot
 			//Others
 			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
 			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
-			secondClose = input.toLowerCase().indexOf(">", secondOpen); 
 		}
-
-		if(secondClose > secondOpen)
-		{
-			validTag = true;
-		}
-		
-		
-//		if (!input.contains("<") && !input.contains(">"))
-//		{
-//			validTag = false;
-//		}
-//		else if(input.contains("<>") || input.contains("< >"))
-//		{
-//			validTag = false;
-//		}
-// 	    else if(input.indexOf()
-//		{
-//			validTag = true;
-//		}
 			return validTag;
 	}
 	
