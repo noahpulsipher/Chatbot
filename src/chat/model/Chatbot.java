@@ -28,7 +28,7 @@ public class Chatbot
 		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = new ArrayList<String>();
-		this.currentTime = null;
+		this.currentTime = LocalTime.now();
 		this.questions = new String [10];
 		this.username = username;
 		this.content = "Words go here";
@@ -42,7 +42,7 @@ public class Chatbot
 		buildCuteAnimals();
 		buildTopics();
       	buildQuestions();
-	//	buildFollowups();
+//		buildFollowups();
 	}
 	
 	/**
@@ -114,9 +114,9 @@ public class Chatbot
 	 */
 	private void buildQuestions()
 	{
-		questions[0] = "What is your favorite color?";
+		questions[0] = "What is your name?";
 		questions[1] = "What is your favorite food?";
-		questions[2] = "What is your spirit animal";
+		questions[2] = "What is your favorite color?";
 		questions[3] = "What do you like to do in your free time?";
 		questions[4] = "What is your favorite movie?";
 		questions[5] = "What is your favorite book?";
@@ -131,11 +131,12 @@ public class Chatbot
 	 * @param Takes users input as a String.
 	 * @return Returns the user input and a response built by buildChatbotResponse.
 	 */
-	
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
-		chatbotResponse+= "You said:" + "\n" + input + "\n";
+		currentTime= LocalTime.now();
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " ";
+		chatbotResponse += "You said:" + "\n" + input + "\n";
 		
 		chatbotResponse += buildChatbotResponse();
 		
@@ -146,7 +147,6 @@ public class Chatbot
 	 * It builds a random response based on verbs, topics and questions.
 	 * @return The random sentence built by the arrays that are already defined.
 	 */
-	
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
@@ -216,7 +216,7 @@ public class Chatbot
 		boolean validTag = false;
 		if(input == null || !input.contains("<"))
 		{
-			return validTag;
+			validTag = false;
 		}
 		int firstOpen = input.indexOf("<");
 		int firstClose = input.indexOf(">", firstOpen);
@@ -227,7 +227,7 @@ public class Chatbot
 		//Check bad tags
 		if(input.contains("<>") || input.indexOf("< >") > -1)
 		{
-			validTag = false;
+			validTag = false; 
 		}
 		//Check singleton
 		if(input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
@@ -240,19 +240,24 @@ public class Chatbot
 			//Others
 			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
 			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
+			secondClose = input.toLowerCase().indexOf(">", secondOpen); 
 		}
 
+		if(secondClose > secondOpen)
+		{
+			validTag = true;
+		}
 		
 		
-		if (!input.contains("<") && !input.contains(">"))
-		{
-			validTag = false;
-		}
-		else if(input.contains("<>") || input.contains("< >"))
-		{
-			validTag = false;
-		}
-//		else if(input.indexOf()
+//		if (!input.contains("<") && !input.contains(">"))
+//		{
+//			validTag = false;
+//		}
+//		else if(input.contains("<>") || input.contains("< >"))
+//		{
+//			validTag = false;
+//		}
+// 	    else if(input.indexOf()
 //		{
 //			validTag = true;
 //		}

@@ -65,8 +65,7 @@ public class ChatbotTest
 	@Test
 	public void testHtmlTagChecker()
 	{
-		assertFalse("Invalid tag fail", testedChatbot.htmlTagChecker("<>"));
-		assertFalse("Invalid tag fail", testedChatbot.htmlTagChecker("< >"));
+ 		assertFalse("Invalid tag fail", testedChatbot.htmlTagChecker("< >"));
 		assertTrue("Valid tag fail", testedChatbot.htmlTagChecker("<B>  </B>"));
 		assertFalse("Incomplete tag fail - closing tag not found", testedChatbot.htmlTagChecker("<B>  "));
 		assertTrue("Valid tag fail", testedChatbot.htmlTagChecker("<I> sdadas </i>"));
