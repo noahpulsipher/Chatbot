@@ -92,7 +92,7 @@ public class Chatbot
 		cuteAnimalMemes.add("pupper");
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("otter");
-		cuteAnimalMemes.add("FLOOFER");
+		cuteAnimalMemes.add("floofer");
 	}
 	
 	/**
@@ -214,33 +214,66 @@ public class Chatbot
 	public boolean htmlTagChecker(String input)
 	{
 		boolean validTag = false;
+		boolean length = true;
+		int len = input.length();
+		int one = input.indexOf("<") + 1;
+		int two = input.indexOf(">");
+		int three = input.indexOf("<" + "/") + 2;
+		String temp = input;
+		temp = temp.replaceFirst(">", " ");
+		int four = temp.indexOf(">");
+		if(len > 3)
+		{
+			length = false;
+		}
+		if(length && three > one && four > two && input.toLowerCase().substring(one, two).contains(input.toLowerCase().substring(three,four)))
+		{
+			validTag = true;
+		}
+		if(length && input.substring(one, two).equalsIgnoreCase("p") || length && input.substring(one, two).equalsIgnoreCase("br"))
+		{
+			validTag = true;
+		}
+		
+		String a = "";
+		if(length) 
+		{
+			a = input.toLowerCase().substring(one, two);
+		}
 		if(input == null || !input.contains("<"))
 		{
 			return validTag;
 		}
-		int firstOpen = input.indexOf("<");
-		int firstClose = input.indexOf(">");
-		int secondOpen = -9;
-		int secondClose = -9;
-		String tagText = "";
-		
-		//Check bad tags
-		if(input.contains("<>") || input.indexOf("< >") > -1)
+		if(a.contains("a href"))
 		{
-			validTag = false; 
+			if(!a.contains("a href") && !a.contains("a href a"))
+			{
+				validTag = false;
+			}
 		}
-		//Check singleton
-		if(input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
-		{
-			validTag = true;
-		}
-		//Check others
-		else if(firstClose > firstOpen)
-		{
-			//Others
-			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
-			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
-		}
+//		int firstOpen = input.indexOf("<");
+//		int firstClose = input.indexOf(">");
+//		int secondOpen = -9;
+//		int secondClose = -9;
+//		String tagText = "";
+//		
+//		//Check bad tags
+//		if(input.contains("<>") || input.indexOf("< >") > -1)
+//		{
+//			validTag = false; 
+//		}
+//		//Check singleton
+//		if(input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
+//		{
+//			validTag = true;
+//		}
+//		//Check others
+//		else if(firstClose > firstOpen)
+//		{
+//			//Others
+//			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
+//			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
+//		}
 			return validTag;
 	}
 	
@@ -310,6 +343,13 @@ public class Chatbot
 		}
 		return validList;
 	}
+	
+	public String toString()
+	{
+		String descriptionString = "";
+		return descriptionString;
+	}
+	
 	/**
 	 * Makes sure that the movie titles are good.
 	 * @param title
