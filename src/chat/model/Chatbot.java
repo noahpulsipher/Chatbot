@@ -283,13 +283,34 @@ public class Chatbot
 			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
 			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
 			
-			if(tagText.contains("A HREF"))
+			if(secondOpen > firstClose)
 			{
-				if(!tagText.contains("A HREF =") || !tagText.contains("A HREF="))
+				secondClose = input.toLowerCase().indexOf(">", secondOpen);
+			}
+			
+			if(secondClose > secondOpen)
+			{
+				validTag = true;
+				
+				if(tagText.contains("A HREF"))
+				{
+					if(!tagText.contains("A HREF=") || !tagText.contains("A HREF ="))
+					{
+						validTag = false;
+					}
+				}
+				
+				else
 				{
 					validTag = true;
 				}
 			}
+			
+			else
+			{
+				validTag = false;
+			}
+
 		}
 		
 		
