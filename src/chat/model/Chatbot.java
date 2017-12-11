@@ -42,7 +42,7 @@ public class Chatbot
 		buildCuteAnimals();
 		buildTopics();
       	buildQuestions();
-//		buildFollowups();
+		buildFollowups();
 	}
 	
 	/**
@@ -126,6 +126,15 @@ public class Chatbot
 		questions[9] = "What is your favorite song?";
 	}
 	
+	private void buildFollowups()
+	{
+		followUps[0] = "\nI like dogs.";
+		followUps[1] = "\nI like watching movies.";
+		followUps[2] = "\nComedy T.V. shows are the best.";
+		followUps[3] = "\nMy favorite book is the bible.";
+		followUps[4] = "\nDo you have a moment to talk about our Lord and Savior Jesus Christ?";
+	}
+	
 	/**
 	 * Builds a response based on the users input and the created chatbot response.
 	 * @param Takes users input as a String.
@@ -164,8 +173,8 @@ public class Chatbot
 		
 		if (random % 2 == 0)
 		{
-			random = (int) (Math.random() * movieList.size());
-			response += "\n" + movieList.get(random).getTitle() + " is a great movie!";
+			random = (int) (Math.random() * shoppingList.size());
+			response += "\n" + shoppingList.get(random) + " is yummy!";
 		}
 		
 		int followup = (int) (Math.random() * 5);
@@ -214,66 +223,76 @@ public class Chatbot
 	public boolean htmlTagChecker(String input)
 	{
 		boolean validTag = false;
-		boolean length = true;
-		int len = input.length();
-		int one = input.indexOf("<") + 1;
-		int two = input.indexOf(">");
-		int three = input.indexOf("<" + "/") + 2;
-		String temp = input;
-		temp = temp.replaceFirst(">", " ");
-		int four = temp.indexOf(">");
-		if(len > 3)
-		{
-			length = false;
-		}
-		if(length && three > one && four > two && input.toLowerCase().substring(one, two).contains(input.toLowerCase().substring(three,four)))
-		{
-			validTag = true;
-		}
-		if(length && input.substring(one, two).equalsIgnoreCase("p") || length && input.substring(one, two).equalsIgnoreCase("br"))
-		{
-			validTag = true;
-		}
-		
-		String a = "";
-		if(length) 
-		{
-			a = input.toLowerCase().substring(one, two);
-		}
-		if(input == null || !input.contains("<"))
-		{
-			return validTag;
-		}
-		if(a.contains("a href"))
-		{
-			if(!a.contains("a href") && !a.contains("a href a"))
-			{
-				validTag = false;
-			}
-		}
-//		int firstOpen = input.indexOf("<");
-//		int firstClose = input.indexOf(">");
-//		int secondOpen = -9;
-//		int secondClose = -9;
-//		String tagText = "";
-//		
-//		//Check bad tags
-//		if(input.contains("<>") || input.indexOf("< >") > -1)
+//		boolean length = true;
+//		int len = input.length();
+//		int one = input.indexOf("<") + 1;
+//		int two = input.indexOf(">");
+//		int three = input.indexOf("<" + "/") + 2;
+//		String temp = input;
+//		temp = temp.replaceFirst(">", " ");
+//		int four = temp.indexOf(">");
+//		if(len > 3)
 //		{
-//			validTag = false; 
+//			length = false;
 //		}
-//		//Check singleton
-//		if(input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
+//		if(length && three > one && four > two && input.toLowerCase().substring(one, two).contains(input.toLowerCase().substring(three,four)))
 //		{
 //			validTag = true;
 //		}
-//		//Check others
-//		else if(firstClose > firstOpen)
+//		if(length && input.substring(one, two).equalsIgnoreCase("p") || length && input.substring(one, two).equalsIgnoreCase("br"))
 //		{
-//			//Others
-//			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
-//			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
+//			validTag = true;
 //		}
+//		
+//		String a = "";
+//		if(length) 
+//		{
+//			a = input.toLowerCase().substring(one, two);
+//		}
+//		if(input == null || !input.contains("<"))
+//		{
+//			return validTag;
+//		}
+//		if(a.contains("a href"))
+//		{
+//			if(!a.contains("a href") && !a.contains("a href a"))
+//			{
+//				validTag = false;
+//			}
+//		}
+		int firstOpen = input.indexOf("<");
+		int firstClose = input.indexOf(">");
+		int secondOpen = -9;
+		int secondClose = -9;
+		String tagText = "";
+		
+		//Check bad tags
+		if(input.contains("<>") || input.indexOf("< >") > -1)
+		{
+			validTag = false; 
+		}
+		//Check singleton
+		if(input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
+		{
+			validTag = true;
+		}
+		//Check others
+		else if(firstClose > firstOpen)
+		{
+			//Others
+			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
+			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
+			
+			if(tagText.contains("A HREF"))
+			{
+				if(!tagText.contains("A HREF =") || !tagText.contains("A HREF="))
+				{
+					validTag = true;
+				}
+			}
+		}
+		
+		
 			return validTag;
 	}
 	
