@@ -35,10 +35,6 @@ public class ChatFrame extends JFrame
 	/**
 	 * Sets up the JPanel.
 	 */
-	private void setupPanel()
-	{
-		
-	}
 	
 	public ChatbotController getAppController()
 	{
