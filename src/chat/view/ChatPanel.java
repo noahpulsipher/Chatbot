@@ -22,6 +22,10 @@ public class ChatPanel extends JPanel
 	private JButton checkerButton;
 	private JLabel infoLabel;
 	private JScrollPane chatScrollPane;
+	private JButton searchButton;
+	private JButton saveButton;
+	private JButton loadButton;
+	private JButton tweetButton;
 	
 	/**
 	 * 
@@ -40,6 +44,10 @@ public class ChatPanel extends JPanel
 		infoLabel = new JLabel("Type to chat with the chatbot");
 		appLayout = new SpringLayout();
 		chatScrollPane = new JScrollPane();
+		searchButton = new JButton("search");
+		saveButton = new JButton("save");
+		loadButton = new JButton("load");
+		tweetButton = new JButton("tweet");
 
 		setupPanel();
 		setupLayout();
@@ -68,6 +76,10 @@ public class ChatPanel extends JPanel
 		this.add(chatScrollPane);
 		this.add(checkerButton);
 		this.add(infoLabel);
+		this.add(searchButton);
+		this.add(saveButton);
+		this.add(loadButton);
+		this.add(tweetButton);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 		
