@@ -41,10 +41,10 @@ public class ChatPanel extends JPanel
 		//Initialize GUI data members
 		chatButton = new JButton("Chat");
 		checkerButton = new JButton("Check");
-		searchButton = new JButton("search", new ImageIcon(getClass().getResource("/chat/view/images/search.png")));
-		saveButton = new JButton("save", new ImageIcon(getClass().getResource("/chat/view/images/save.png")));
-		loadButton = new JButton("load", new ImageIcon(getClass().getResource("/chat/view/images/load.png")));
-		tweetButton = new JButton("tweet", new ImageIcon(getClass().getResource("/chat/view/images/tweet.png")));
+		searchButton = new JButton("search", new ImageIcon(getClass().getResource("/chat/view/images/searchIcon.png")));
+		saveButton = new JButton("save", new ImageIcon(getClass().getResource("/chat/view/images/saveIcon.png")));
+		loadButton = new JButton("load", new ImageIcon(getClass().getResource("/chat/view/images/loadIcon.png")));
+		tweetButton = new JButton("tweet", new ImageIcon(getClass().getResource("/chat/view/images/tweetIcon.png")));
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		infoLabel = new JLabel("Type to chat with the chatbot");
