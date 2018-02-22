@@ -2,6 +2,7 @@ package chat.view;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.*;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
@@ -44,10 +45,10 @@ public class ChatPanel extends JPanel
 		infoLabel = new JLabel("Type to chat with the chatbot");
 		appLayout = new SpringLayout();
 		chatScrollPane = new JScrollPane();
-		searchButton = new JButton("search");
-		saveButton = new JButton("save");
-		loadButton = new JButton("load");
-		tweetButton = new JButton("tweet");
+		searchButton = new JButton("search", new ImageIcon("/chat/view/images/searchIcon.png"));
+		saveButton = new JButton("save", new ImageIcon("/chat/view/images/saveIcon.png"));
+		loadButton = new JButton("load", new ImageIcon("/chat/view/images/loadIcon.png"));
+		tweetButton = new JButton("tweet", new ImageIcon("/chat/view/images/tweetIcon.png"));
 
 		setupPanel();
 		setupLayout();
