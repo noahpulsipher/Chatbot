@@ -120,4 +120,9 @@ public class ChatbotController
 	{
 		myTwitter.sendTweet(text);
 	}
+	
+	public void search(String text)
+	{
+		return myTwitter.getMostCommonWord(text);
+	}
 }
