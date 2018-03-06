@@ -153,5 +153,17 @@ public class CTECTwitter
 		return boringWords;
 	}
 	
-	
+	private void trimTheBoringWords(String [] boringWords)
+	{
+		for (int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			for (String word : boringWords)
+			{
+				if (tweetedWords.get(index).equals(word))
+				{
+					tweetedWords.remove(index);
+				}
+			}
+		}
+	}
 }
