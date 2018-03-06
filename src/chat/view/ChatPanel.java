@@ -37,6 +37,7 @@ public class ChatPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
+		appLayout = new SpringLayout();
 		
 		//Initialize GUI data members
 		chatButton = new JButton("Chat");
@@ -85,6 +86,7 @@ public class ChatPanel extends JPanel
 		this.add(tweetButton);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
+	
 		
 	}
 	
@@ -93,7 +95,7 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupLayout()
 	{
-		appLayout = new SpringLayout();
+		
 		appLayout.putConstraint(SpringLayout.WEST, searchButton, -95, SpringLayout.WEST, tweetButton);
 		appLayout.putConstraint(SpringLayout.NORTH, saveButton, 0, SpringLayout.NORTH, loadButton);
 		appLayout.putConstraint(SpringLayout.WEST, saveButton, 0, SpringLayout.WEST, searchButton);
