@@ -125,4 +125,19 @@ public class ChatbotController
 	{
 		return myTwitter.getMostCommonWord(text);
 	}
+	
+	public Chatbot getChatbot()
+	{
+		return chatbot;
+	}
+	
+	public PopupDisplay getDisplay()
+	{
+		return display;
+	}
+	
+	public ChatFrame getChatFrame()
+	{
+		return appFrame;
+	}
 }
